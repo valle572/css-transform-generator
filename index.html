@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Trans4m</title>
+
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="center-content">
+
+    <nav>
+        <h1>CSS 3D Transform Generator</h1>
+        <h2>Click Shape to begin</h2>
+        <div class="shape-option center-content active">
+            <div class="card-container option" onclick="selectShape()">
+                <div class="card center-content">2D Card</div>
+            </div>
+        </div>
+        <div class="shape-option center-content">
+            <div class="cube-container option" onclick="selectShape()">
+                <div class="cube">
+                    <div id="cube-front"  class="cube-face"></div>
+                    <div id="cube-top"    class="cube-face"></div>
+                    <div id="cube-back"   class="cube-face"></div>
+                    <div id="cube-right"  class="cube-face"></div>
+                    <div id="cube-left"   class="cube-face"></div>
+                    <div id="cube-bottom" class="cube-face"></div>
+                </div>
+            </div>
+        </div>
+        <div class="shape-option center-content">
+            <div class="hexa-container option" onclick="selectShape()">
+                <div class="hexagon">
+                    <div class="hexa-face" id="hexa-top"></div>
+                    <div class="hexa-side" id="hexa-one"></div>
+                    <div class="hexa-side" id="hexa-two"></div>
+                    <div class="hexa-side" id="hexa-thr"></div>
+                    <div class="hexa-side" id="hexa-fou"></div>
+                    <div class="hexa-side" id="hexa-fiv"></div>
+                    <div class="hexa-side" id="hexa-six"></div>
+                    <div class="hexa-face" id="hexa-bot"></div>
+                </div>
+            </div>
+        </div>
+        <div class="shape-option center-content">
+            <div class="octa-container option" onclick="selectShape()">
+                <div class="octahedron">
+                    <div class="octa-side" id="octa-one"></div>
+                    <div class="octa-side" id="octa-two"></div>
+                    <div class="octa-side" id="octa-thr"></div>
+                    <div class="octa-side" id="octa-fou"></div>
+                    <div class="octa-side" id="octa-fiv"></div>
+                    <div class="octa-side" id="octa-six"></div>
+                    <div class="octa-side" id="octa-sev"></div>
+                    <div class="octa-side" id="octa-eig"></div>
+                </div>
+            </div>
+        </div>
+        <div class="shape-option center-content">
+            <div class="bucky-container center-content option" onclick="selectShape()">
+                <div class="bucky-ball">
+                    <div class="bucky-half">
+                        <div class="buck-section first">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section second">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section third">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section fourth">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section fifth">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bucky-half">
+                        <div class="buck-section first">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section second">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section third">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section fourth">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section fifth">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="nav-bottom center-content">
+            <button class="nav-cycle-btn" onclick="newShape(this)">Change Shape</button>
+        </div>
+    </nav>
+    <main>
+        <section class="object-container center-content">
+            <!-- Card -->
+            <div class="card-container object active">
+                <div class="card center-content">2D Card</div>
+            </div>
+            <!-- Cube -->
+            <div class="cube-container object">
+                <div class="cube">
+                    <div id="cube-front"  class="cube-face">Front</div>
+                    <div id="cube-top"    class="cube-face">Top</div>
+                    <div id="cube-back"   class="cube-face">Back</div>
+                    <div id="cube-right"  class="cube-face">Right</div>
+                    <div id="cube-left"   class="cube-face">Left</div>
+                    <div id="cube-bottom" class="cube-face">Bottom</div>
+                </div>
+            </div>
+            <!-- Hexagon -->
+            <div class="hexa-container object">
+                <div class="hexagon">
+                    <div class="hexa-face" id="hexa-top">Front</div>
+                    <div class="hexa-side" id="hexa-one">One</div>
+                    <div class="hexa-side" id="hexa-two">Two</div>
+                    <div class="hexa-side" id="hexa-thr">Three</div>
+                    <div class="hexa-side" id="hexa-fou">Four</div>
+                    <div class="hexa-side" id="hexa-fiv">Five</div>
+                    <div class="hexa-side" id="hexa-six">Six</div>
+                    <div class="hexa-face" id="hexa-bot">Back</div>
+                </div>
+            </div>
+            <!-- Octahedron -->
+            <div class="octa-container object">
+                <div class="octahedron">
+                    <div class="octa-side" id="octa-one">One</div>
+                    <div class="octa-side" id="octa-two">Two</div>
+                    <div class="octa-side" id="octa-thr">Three</div>
+                    <div class="octa-side" id="octa-fou">Four</div>
+                    <div class="octa-side" id="octa-fiv">Five</div>
+                    <div class="octa-side" id="octa-six">Six</div>
+                    <div class="octa-side" id="octa-sev">Seven</div>
+                    <div class="octa-side" id="octa-eig">Eight</div>
+                </div>
+            </div>
+            <!-- Bucky Ball -->
+            <div class="bucky-container object">
+                <div class="bucky-ball">
+                    <div class="bucky-half">
+                        <div class="buck-section first">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section second">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section third">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section fourth">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section fifth">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bucky-half">
+                        <div class="buck-section first">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section second">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section third">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section fourth">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                        <div class="buck-section fifth">
+                            <div class="buck-hexa buck-hexa-1">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-hexa buck-hexa-2">
+                                <svg viewBox="0 0 256 256"><g transform="rotate(90 128 128)"><path fill="currentColor" d="M128 234.8a12.3 12.3 0 0 1-5.9-1.5l-84-47.5a11.9 11.9 0 0 1-6.1-10.5V80.7a11.9 11.9 0 0 1 6.1-10.5l84-47.5a12.4 12.4 0 0 1 11.8 0l84 47.5a11.9 11.9 0 0 1 6.1 10.5v94.6a11.9 11.9 0 0 1-6.1 10.5l-84 47.5a12.3 12.3 0 0 1-5.9 1.5Zm0-205.6a4.6 4.6 0 0 0-2 .5L42 77.2a4 4 0 0 0-2 3.5v94.6a4 4 0 0 0 2 3.5l84 47.5a4.1 4.1 0 0 0 4 0l84-47.5a4 4 0 0 0 2-3.5V80.7a4 4 0 0 0-2-3.5l-84-47.5a4.6 4.6 0 0 0-2-.5Z"/></g></svg>
+                            </div>
+                            <div class="buck-pent">
+                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="m21.795 9.456l-9.5-6.923a.504.504 0 0 0-.59 0l-9.5 6.923a.502.502 0 0 0-.18.559l3.628 11.202a.5.5 0 0 0 .476.345H17.87a.5.5 0 0 0 .476-.345l3.629-11.202a.502.502 0 0 0-.181-.559zm-4.287 11.107H6.492L3.087 10.05L12 3.557l8.913 6.494l-3.405 10.511z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section class="controls center-content">
+            <ul class="settings center-content">
+                <li onclick="copyToClipboard()" onmouseover="describeSetting('Copy To Clipboard')" onmouseout="removeSettingDesc()">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M9 18q-.825 0-1.412-.587Q7 16.825 7 16V4q0-.825.588-1.413Q8.175 2 9 2h9q.825 0 1.413.587Q20 3.175 20 4v12q0 .825-.587 1.413Q18.825 18 18 18Zm0-2h9V4H9v12Zm-4 6q-.825 0-1.413-.587Q3 20.825 3 20V7q0-.425.288-.713Q3.575 6 4 6t.713.287Q5 6.575 5 7v13h10q.425 0 .713.288q.287.287.287.712t-.287.712Q15.425 22 15 22ZM9 4v12V4Z"/>
+                    </svg>
+                </li>
+                <li onclick="toggleTheme()" onmouseover="describeSetting('Change Theme')" onmouseout="removeSettingDesc()">
+                    <svg viewBox="0 0 36 36">
+                        <path fill="currentColor" d="M18 6.31a1 1 0 0 0 1-1v-3.4a1 1 0 0 0-2 0v3.4a1 1 0 0 0 1 1Z" class="clr-i-outline clr-i-outline-path-1"/><path fill="currentColor" d="M18 29.69a1 1 0 0 0-1 1v3.4a1 1 0 0 0 2 0v-3.4a1 1 0 0 0-1-1Z" class="clr-i-outline clr-i-outline-path-2"/><path fill="currentColor" d="M8.32 9.74A1 1 0 0 0 9 10a1 1 0 0 0 .71-.29a1 1 0 0 0 0-1.42L7.33 5.92a1 1 0 0 0-1.41 1.41Z" class="clr-i-outline clr-i-outline-path-3"/><path fill="currentColor" d="M27.68 26.26a1 1 0 1 0-1.42 1.42l2.41 2.4a1 1 0 0 0 .71.3a1 1 0 0 0 .7-.3a1 1 0 0 0 0-1.41Z" class="clr-i-outline clr-i-outline-path-4"/><path fill="currentColor" d="M6.31 18a1 1 0 0 0-1-1h-3.4a1 1 0 0 0 0 2h3.4a1 1 0 0 0 1-1Z" class="clr-i-outline clr-i-outline-path-5"/><path fill="currentColor" d="M34.09 17h-3.4a1 1 0 1 0 0 2h3.4a1 1 0 0 0 0-2Z" class="clr-i-outline clr-i-outline-path-6"/><path fill="currentColor" d="m8.32 26.26l-2.4 2.41a1 1 0 0 0 .7 1.71a1 1 0 0 0 .71-.3l2.41-2.4a1 1 0 1 0-1.42-1.42Z" class="clr-i-outline clr-i-outline-path-7"/><path fill="currentColor" d="M27 10a1 1 0 0 0 .71-.29l2.4-2.41a1 1 0 0 0 0-1.41a1 1 0 0 0-1.41 0l-2.41 2.4a1 1 0 0 0 0 1.42A1 1 0 0 0 27 10Z" class="clr-i-outline clr-i-outline-path-8"/><path fill="currentColor" d="M18.13 7.75a10.13 10.13 0 1 0 10 10.13a10.08 10.08 0 0 0-10-10.13Zm0 18.25a8.13 8.13 0 1 1 8-8.12a8.08 8.08 0 0 1-8 8.12Z" class="clr-i-outline clr-i-outline-path-9"/><path fill="none" d="M0 0h36v36H0z"/>
+                    </svg>
+                </li>
+                <li onclick="newShape(this)" onmouseover="describeSetting('Change Shape')" onmouseout="removeSettingDesc()">
+                    <svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                        <path d="M21 7.353v9.294a.6.6 0 0 1-.309.525l-8.4 4.666a.6.6 0 0 1-.582 0l-8.4-4.666A.6.6 0 0 1 3 16.647V7.353a.6.6 0 0 1 .309-.524l8.4-4.667a.6.6 0 0 1 .582 0l8.4 4.667a.6.6 0 0 1 .309.524Z"/><path d="m3.528 7.294l8.18 4.544a.6.6 0 0 0 .583 0l8.209-4.56M12 21v-9"/></g>
+                    </svg>
+                </li>
+                <li onclick="reset()" onmouseover="describeSetting('Reset Transform')" onmouseout="removeSettingDesc()">
+                    <svg viewBox="0 0 32 32">
+                        <path fill="currentColor" d="M8.884 3.116a1.25 1.25 0 0 1 0 1.768L6.018 7.75H17.5c5.937 0 10.75 4.813 10.75 10.75S23.437 29.25 17.5 29.25S6.75 24.437 6.75 18.5a1.25 1.25 0 1 1 2.5 0a8.25 8.25 0 1 0 8.25-8.25H6.018l2.866 2.866a1.25 1.25 0 0 1-1.768 1.768l-5-5a1.25 1.25 0 0 1 0-1.768l5-5a1.25 1.25 0 0 1 1.768 0Z"/>
+                    </svg>
+                </li>
+            </ul>
+            <div class="settings-description">Hover Controls</div>
+            <h2>Translate</h2>
+            <ul class="translate">
+                <li>
+                    <div>
+                        <span>X:</span>
+                        <span class="slider-val tran-x">0</span>px
+                    </div>
+                    <input type="range" min="-100" max="100" class="tran-x" value="0" oninput="updateTransform(this)">
+                </li>
+                <li>
+                    <div>
+                        <span>Y:</span>
+                        <span class="slider-val tran-y">0</span>px
+                    </div>
+                    <input type="range" min="-100" max="100" class="tran-y" value="0" oninput="updateTransform(this)">
+                </li>
+                <li>
+                    <div>
+                        <span>Z:</span>
+                        <span class="slider-val tran-z">0</span>px
+                    </div>
+                    <input type="range" min="-100" max="100" class="tran-z" value="0" oninput="updateTransform(this)">
+                </li>
+            </ul>
+            <h2>Rotate</h2>
+            <ul class="rotate">
+                <li>
+                    <div>
+                        <span>X:</span>
+                        <span class="slider-val rot-x">0</span>deg
+                    </div>
+                    <input type="range" min="-180" max="180" class="rot-x" value="0" step="2" oninput="updateTransform(this)">
+                </li>
+                <li>
+                    <div>
+                        <span>Y:</span>
+                        <span class="slider-val rot-y">0</span>deg
+                    </div>
+                    <input type="range" min="-180" max="180" class="rot-y" value="0" step="2" oninput="updateTransform(this)">
+
+                </li>
+                <li>
+                    <div>
+                        <span>Z:</span>
+                        <span class="slider-val rot-z">0</span>deg
+                    </div>
+                    <input type="range" min="-180" max="180" class="rot-z" value="0" step="2" oninput="updateTransform(this)">
+                </li>
+            </ul>
+            <h2>Scale</h2>
+            <ul class="scale">
+                <li>
+                    <div>
+                        <span>X:</span>
+                        <span class="slider-val sca-x scale">1</span>
+                    </div>
+                    <input type="range" min="0.75" max="1.25" class="sca-x" value="1" step="0.01" oninput="updateTransform(this)">
+                </li>
+                <li>
+                    <div>
+                        <span>Y:</span>
+                        <span class="slider-val sca-y scale">1</span>
+                    </div>
+                    <input type="range" min="0.75" max="1.25" class="sca-y" value="1" step="0.01" oninput="updateTransform(this)">
+                </li>
+            </ul>
+            <h2>Skew</h2>
+            <ul class="skew">
+                <li>
+                    <div>
+                        <span>X:</span>
+                        <span class="slider-val skew-x">0</span>deg
+                    </div>
+                    <input type="range" min="-30" max="30" class="skew-x" value="0" oninput="updateTransform(this)">
+                </li>
+                <li>
+                    <div>
+                        <span>Y:</span>
+                        <span class="slider-val skew-y">0</span>deg
+                    </div>
+                    <input type="range" min="-45" max="45" class="skew-y" value="0" oninput="updateTransform(this)">
+                </li>
+            </ul>
+            <h2>Perspective</h2>
+            <ul class="perspective">
+                <li>
+                    <div>  
+                        <span>Z:</span>
+                        <span class="slider-val pers">1000</span>px
+                    </div>
+                    <input type="range" min="250" max="1000" class="pers" value="1000" step="10" oninput="updateTransform(this)">
+                </li>
+            </ul>
+            <footer>
+                <p>Designed and Created by Valle Web</p>
+            </footer>
+        </section>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
