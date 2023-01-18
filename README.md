@@ -1,3 +1,4 @@
+![files](https://img.shields.io/github/directory-file-count/valle572/css-3d-transform-generator) ![license](https://img.shields.io/github/license/valle572/css-3d-transform-generator)
 # CSS-3D-Transform-Generator
 > Generate: Translate, Rotate, Scale, Skew
 
